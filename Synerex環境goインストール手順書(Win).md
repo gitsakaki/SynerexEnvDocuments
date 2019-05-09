@@ -1,12 +1,12 @@
 | Synerex Alpha環境 Go言語インストール手順書 |
 | ------------------------------------------ |
 | **（Windows編）**                          |
-| **R0.04版**                                |
+| **R0.05版**                                |
 
 | 作成者     | 榊原          |
-| -----------|-------------- |
+| ---------- | ------------- |
 | 初版作成日 | 2019年4月26日 |
-| 最終更新日 | 2019年5月7日  |
+| 最終更新日 | 2019年5月9日  |
 
  目次
 
@@ -21,8 +21,8 @@
 # 前提条件
 
 -  Windows 7以降（本書はWindows 10で説明）
-
 - 管理者権限ユーザ
+- 文中の「\」（バックスラッシュ）、「￥」（円マーク）は同一文字として読み替えのこと
 
 
 ## セットアップ順序
@@ -53,7 +53,7 @@
  ［Win］キー（or ［スタート］） → ｓ ｙ ｓ入力 → システム
  選択で以下画面を表示、Windowのbitを確認する。
 
-![](img/image2.png)
+![](img/win/imgw01sys-01.png)
 
 # Gitのインストール
 
@@ -84,13 +84,13 @@
 
  公式サイト（URL: [https://git-scm.com/](https://git-scm.com/)）よりインストーラのダウンロードを行う。
 
- ![](img/image3.png)
+ ![](img/win/imgw02git-01.png)
 
 ### インストーラ実行
 
  ダウンロードしたインストーラを実行する。
 
- ![](img/image4.png)
+ ![](img/win/imgw02git-02.png)
  ［Next］押下
 
 以降省略。デフォルトのまま、［Next］押下
@@ -126,30 +126,30 @@
 
  公式サイト（URL: [https://golang.org/dl/](https://golang.org/dl/)）より該当するWindows用インストーラ（.msi）をダウンロードする。
 
- ![](img/image5.png)
+ ![](img/win/imgw03go-01.png)
 
 ### インストーラ実行
 
  ダウンロードしたインストーラを実行する。
 
- ![](img/image6.png)
+ ![](img/win/imgw03go-02.png)
  ［Next］押下
 
- ![](img/image7.png)
+ ![](img/win/imgw03go-03.png)
  「Ｉ accept･･･」にチェックを入れた後、［Next］押下
 
- ![](img/image8.png)
+ ![](img/win/imgw03go-04.png)
  インストール先を確認し、［Next］押下
 
- ![](img/image9.png)
+ ![](img/win/imgw03go-05.png)
  ［Install］押下
 
  インストール途中に「Google LLC」のインストールを許可しますか？をきいてくるの「はい」押下
 
- ![](img/image10.png)
+ ![](img/win/imgw03go-06.png)
  しばらく待つ
 
-![](img/image11.png)
+![](img/win/imgw03go-07.png)
  ［Finish］押下
 
 ### 再起動とバージョン確認
@@ -195,7 +195,7 @@
 
  オリジナルのGoogle実装はC++、Java、Pythonによるものであり、フリーソフトウェアとしてオープンソースライセンスで公開されている。
 
- また、ActionScript・C言語・C\#・Clojure・Common Lisp・D言語・Erlang・Go・Haskell・JavaScript・Lua・MATLAB・Mercury・Objective-C・OCaml・Perl・PHP・R言語・Ruby・Scala・.NET Frameworkなどの実装が利用可能である。
+ また、ActionScript・C言語・C#・Clojure・Common Lisp・D言語・Erlang・Go・Haskell・JavaScript・Lua・MATLAB・Mercury・Objective-C・OCaml・Perl・PHP・R言語・Ruby・Scala・.NET Frameworkなどの実装が利用可能である。
 
 ## Protocol Buffersインストール済み確認
 
@@ -215,9 +215,9 @@
 
  公式サイト（URL: [https://github.com/protocolbuffers/protobuf/releases](https://github.com/protocolbuffers/protobuf/releases)）より該当するWindows用モジュールをダウンロードする。
 
- ![](img/image12.png)
- ：
- ![](img/image13.png)
+ ![](img/win/imgw04prtc-01.png)
+
+ ![](img/win/imgw04prtc-02.png)
 
 ### 圧縮ファイルの展開
 
@@ -232,27 +232,27 @@
  ［Win］キー（or ［スタート］） → ｅ ｎ ｖ入力 → システム環境変数の編集
  選択で以下画面を表示、環境変数情報を編集する
 
- ![](img/image14.png)
+ ![](img/win/imgw04prtc-03.png)
  システム環境変数の［新規］押下
 
- ![](img/image15.png)
+ ![](img/win/imgw04prtc-04.png)
 
- ・変数名：「PROTOC\_PATH」
- ・変数値：圧縮ファイル展開先\バージョン\bin
+ ・変数名：「PROTOC_PATH」
+ ・変数値：圧縮ファイル展開先￥バージョン￥bin
  ・［OK］押下
 
- ![](img/image16.png)
- 「PROTOC\_PATH」項目が追加されていることを確認
+ ![](img/win/imgw04prtc-05.png)
+ 「PROTOC_PATH」項目が追加されていることを確認
 
- ![](img/image17.png)
+ ![](img/win/imgw04prtc-06.png)
  システム環境変数の「Path」項目をダブルクリック
 
- ![](img/image18.png)
+ ![](img/win/imgw04prtc-07.png)
  ①［新規］押下
- ②「％PROTOC\_PATH%」入力
+ ②「％PROTOC_PATH%」入力
  ③［OK］押下
 
- ![](img/image17_2.png)
+ ![](img/win/imgw04prtc-08.png)
  ［OK］押下
 
 ### 再起動とバージョン確認
@@ -270,7 +270,7 @@
  上記コマンドにてファイルが存在しない場合、コマンドプロンプトから以下のコマンドを実行し、Go用プラグインをインストールする。
 
 ```
->go get -u github.com/golang/protobuf/protoc-gen-go
+> go get -u github.com/golang/protobuf/protoc-gen-go
 ```
 
  ※処理に数分程度要することがあるので気長に待つ。
@@ -285,7 +285,7 @@
 
 ## Node.jsとNPMインストール済み確認
 
- インストールに伴い必要な環境変数が定義されるのでWindowsを再起動後、コマンドプロンプトから以下のコマンドを実行し、バージョンが正しく表示されることを確認する。
+ コマンドプロンプトから以下のコマンドを実行し、バージョンが正しく表示されることを確認する。
 
 ```
 > node --version    ← Node.jsの確認
@@ -302,7 +302,7 @@
 
  公式サイト（URL: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)）よりWindows用インストーラ（.msi）をダウンロードする。
 
- ![](img/image19.png)
+ ![](img/win/imgw05ndjs-01.png)
 
 Bit適合するファイルがダウンロードされる
 
@@ -310,25 +310,25 @@ Bit適合するファイルがダウンロードされる
 
  ダウンロードしたインストーラを実行する。
 
- ![](img/image20.png)
+ ![](img/win/imgw05ndjs-02.png)
  ［Next］押下
 
- ![](img/image21.png)
+ ![](img/win/imgw05ndjs-03.png)
  「Ｉ accept ･･･」にチェックを入れた後、［Next］押下
 
- ![](img/image22.png)
+ ![](img/win/imgw05ndjs-04.png)
  インストール先を確認し、［Next］押下
 
- ![](img/image23.png)
+ ![](img/win/imgw05ndjs-05.png)
  ［Next］押下
 
- ![](img/image24.png)
+ ![](img/win/imgw05ndjs-06.png)
  ［Install］押下
 
- ![](img/image25.png)
+ ![](img/win/imgw05ndjs-07.png)
  しばらく待つ
 
- ![](img/image26.png)
+ ![](img/win/imgw05ndjs-08.png)
  ［Finish］押下
 
 ### 再起動とバージョン確認
@@ -357,32 +357,32 @@ Bit適合するファイルがダウンロードされる
 
  公式サイト（URL: [https://yarnpkg.com/ja/](https://yarnpkg.com/ja/)）よりWindows用インストーラ（.msi）をダウンロードする。
 
-![](img/image27.png)
+![](img/win/imgw06yarn-01.png)
 ［YARNをインストール］押下
 
-![](img/image28.png)
+![](img/win/imgw06yarn-02.png)
 種類確認後、［インストーラをダウンロードする］押下
 
 ### インストーラ実行
 
  ダウンロードしたインストーラを実行する。
 
- ![](img/image29.png)
+ ![](img/win/imgw06yarn-03.png)
 ［Next］押下
 
- ![](img/image30.png)
+ ![](img/win/imgw06yarn-04.png)
 「Ｉ accept ･･･」にチェックを入れた後、［Next］押下
 
- ![](img/image31.png)
+ ![](img/win/imgw06yarn-05.png)
 インストール先を確認し、［Next］押下
 
- ![](img/image32.png)
+ ![](img/win/imgw06yarn-06.png)
 ［Install］押下
 
- ![](img/image33.png)
+ ![](img/win/imgw06yarn-07.png)
 しばらく待つ
 
- ![](img/image34.png)
+ ![](img/win/imgw06yarn-08.png)
 ［Finish］押下
 
 ### 再起動とバージョン確認
@@ -400,7 +400,7 @@ Bit適合するファイルがダウンロードされる
  （※以下はインストール例であるため、適宜調整する）
 
 ```
-> go get -u Synerex [Alphaリポジトリ]
+> go get -u [Synerex Alphaリポジトリ]
 ```
 
 | 【 Synerexリポジトリ例】          |
@@ -412,14 +412,14 @@ Bit適合するファイルがダウンロードされる
 
 ## 関連パッケージのインストール（参考）
 
- Synerex Alphaの実行するためには、関連パッケージのインストールが必要となる。
+ Synerex Alphaを実行するためには、関連パッケージのインストールが必要となる。
 
  通常は、go buildで関連パッケージを自動でダウンロードするが、go version 1.12以降では、go modulesパッケージ仕様が変更され、デフォルトでは、ビルド対象パッケージが %GOPATH%\src 配下にある場合、関連パッケージのダウンロードがされない。そのため、go build前に以下コマンド実行するか、手動にて関連パッケージをインストールする必要がある。
 
 ### 自動ダウンロードする場合
 
- Synerex Alphaを動作するために必要な関連パッケージを自動インストールする。
- go buildコマンド発行前に、コマンドプロンプトから以下のコマンドを実行する。
+ Synerex Alphaが動作するために必要な関連パッケージを自動インストールする。
+ go buildコマンド発行前に、コマンドプロンプトから以下のコマンドを実行するか、環境変数「GO111MODULE」を設定する。
 
 ```
 > set GO111MODULE=on
@@ -428,18 +428,26 @@ Bit適合するファイルがダウンロードされる
  以下buildサンプル
 
 ```
+【サンプル1】
 > cd %GOPATH%\src\github.com\synerex\synerex_alpha\cli\daemon
 > set GO111MODULE=on
-> go mod init se-daemon
-> go mod tidy
-> go build
+> go build               ← 正常終了すると「se-daemon.exe」が生成される 
+> se-daemon build
+
+【サンプル2】
+> cd %GOPATH%\src\github.com\synerex\synerex_alpha\cli\daemon
+> set GO111MODULE=on
+> go mod init se-daemon  ← 正常終了すると「go.mod」が生成される
+> go mod tidy            ← 正常終了すると「go.sum」が生成される
+> go build               ← 正常終了すると「se-daemon.exe」が生成される 
 ```
 
  上記でビルドエラーになる場合は次項「手動ダウンロードする場合」を実行することで解決する場合がある。
+ ※環境変数にて「GO111MODULE」を設定する方法については省略する。
 
 ### 手動ダウンロードする場合
 
- Synerex Alphaを動作するために必要な全関連パッケージを手動インストールする。
+ Synerex Alphaが動作するために必要な全関連パッケージを手動インストールする。
 
  コマンドプロンプトから以下のコマンドを実行する。
 
@@ -450,6 +458,9 @@ Bit適合するファイルがダウンロードされる
 > go get ./...
 ```
 
+※1 ダウンロードに時間がかかるため気長に待つ。
+※2 GO111MODULE=autoに伴うエラーが発生する場合は、前項「自動ダウンロードする場合」同様にsetコマンドにて対応する。
+
 # その他
 
 ## 実行エラー時の対応
@@ -458,7 +469,7 @@ Bit適合するファイルがダウンロードされる
 
  【エラー例】
 
-![](img/image35.png)
+![](img/win/imgw07msc-01.png)
 
  内容：「github.com/spf13/viper」パッケージが見つからない
 
