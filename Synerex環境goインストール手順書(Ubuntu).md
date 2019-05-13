@@ -54,12 +54,9 @@
 3. 「詳細」選択
 
 
-
 ![](img/ubuntu/imgu01sys-02.png)
 
-
 「プロセッサ」と「OS種別」把握する。
-
 ※本書ではIntel系CPU、64bit版OSを対象としているため、その他の場合（特にARM系）については別途考察が必要となる
 
 ## curlコマンドの確認
@@ -133,7 +130,7 @@ $ go version
 
  公式サイト（URL: [https://golang.org/dl/](https://golang.org/dl/)）より該当する実行ファイルをダウンロードする。
 
- ![](/img/ubuntu/imgu03go-01.png)
+![](/img/ubuntu/imgu03go-01.png)
 
 ### 実行ファイルの展開
 
@@ -257,9 +254,9 @@ $ protoc --version
 
  公式サイト（URL: [https://github.com/protocolbuffers/protobuf/releases](https://github.com/protocolbuffers/protobuf/releases)）より該当するUbuntu用モジュールをダウンロードする。
 
- ![](/img/ubuntu/imgu04prtc-01.png)
+![](/img/ubuntu/imgu04prtc-01.png)
 
- ![](/img/ubuntu/imgu04prtc-02.png) 
+![](/img/ubuntu/imgu04prtc-02.png) 
 
  ダウンロード後、ターミナルから以下のコマンドを実行し、インストールを実施する。
 
