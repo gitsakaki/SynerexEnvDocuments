@@ -432,7 +432,7 @@ $ export GO111MODULE=on
 $ cd $GOPATH/src/github.com/synerex/synerex_alpha/cli/daemon
 $ export GO111MODULE=on
 $ go build               ← 正常終了すると「se-daemon」が生成される 
-$ se-daemon build
+$ ./se-daemon build
 
 【サンプル2】
 $ cd $GOPATH/src/github.com/synerex/synerex_alpha/cli/daemon
