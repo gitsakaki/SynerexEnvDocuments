@@ -1,11 +1,11 @@
 | Synerex Alpha環境 Go言語インストール手順書 |
 | ------------------------------------------ |
-| **（Mac編）**                              |
-| **R0.02版**                                |
+| **（Ubuntu編）**                           |
+| **R0.01版**                                |
 
 | 作成者     | 榊原          |
 | ---------- | ------------- |
-| 初版作成日 | 2019年5月9日  |
+| 初版作成日 | 2019年5月13日 |
 | 最終更新日 | 2019年5月13日 |
 
  目次
@@ -16,14 +16,15 @@
 
  本書はGo言語インストールに関する手順書である。Synerex Alphaが実行できる環境の構築を目的としているため、gRPCなど関連モジュールの記述も含んでいる。
 
- モジュールインストール毎に正常確認を行うために、環境変数を取込むMac再起動を都度行う手順としている。
+ モジュールインストール毎に正常確認を行うために、環境変数を取込むUbuntu再起動を都度行う手順としている。
 
 # 前提条件
 
--  Mac OS X 以降（説明ではWindows画面を一部流用している。）
+- ubuntu 16.04 LTS以降（説明ではWindows画面を一部流用している。）
+- プロセッサ種別がIntel系でない場合、別途考察が必要
 - 64bit版 OS（本書では64bit版OSを対象としているため、32bit版OSについては別途考察が必要）
-- パッケージマネージャー Homebrew（ホームブルー）インストール済み
-- Git、GolangなどHomebrewによるインストールでなく、最新モジュールを適用することを目的に.pkgによるインストール手順としている場合がある。
+- curlコマンドインストール済み
+- Golangなどaptコマンドによるインストールでなく、最新モジュールを適用することを目的に手動によるインストール手順としている場合がある。
 
 
 ## セットアップ順序
@@ -31,19 +32,12 @@
  セットアップ順序は以下のとおりである。
 
 1. Gitのインストール
-
 2. Goのインストール
-
 3. gRPCのインストール
-
 4. Protocol Buffersのインストール
-
 5. Node.jsとNPMのインストール
-
 6. YARNのインストール
-
 7. 関連パッケージのインストール
-
 
 # 事前確認
 
@@ -51,52 +45,38 @@
 
 ## OS情報の確認
 
- Macのbitを確認するため、以下を実行する。
+ ubuntuのbitを確認するため、以下を実行する。
 
-![](img/mac/imgm01sys-01.png)
+![](img/ubuntu/imgu01sys-01.png)
 
-「このMacについて」を選択
-
-
-
-![](img/mac/imgm01sys-02.png)
-
-［システムレポート］押下
+1. 「コンピュータを検索」選択
+2. 「shi」入力
+3. 「詳細」選択
 
 
 
-![](img/mac/imgm01sys-03.png)
+![](img/ubuntu/imgu01sys-02.png)
 
-「プロセッサ名」と下表を参照し、OSのビット情報を把握する。
 
-| プロセッサ名         | 32 ビット／64 ビット |
-| -------------------- | -------------------- |
-| Intel Core Solo      | 32 ビット            |
-| Intel Core Duo       | 32 ビット            |
-| Intel Core 2 Duo     | 64 ビット            |
-| Intel Quad-Core Xeon | 64 ビット            |
-| Dual-Core Intel Xeon | 64 ビット            |
-| Quad-Core Intel Xeon | 64 ビット            |
-| Core i3              | 64 ビット            |
-| Core i5              | 64 ビット            |
-| Core i7              | 64 ビット            |
+「プロセッサ」と「OS種別」把握する。
 
-※本書では64bit版OSを対象としているため、32bit版OSについては別途考察が必要となる
+※本書ではIntel系CPU、64bit版OSを対象としているため、その他の場合（特にARM系）については別途考察が必要となる
 
-## パッケージマネージャーの確認
+## curlコマンドの確認
 
-パッケージマネージャー Homebrew（ホームブルー）のインストール済み確認を行う。
+curlコマンドは、HTTPアクセスをしてコンテンツを取得できるコマンドである。事前にcurlコマンドのインストール済み確認を行う。
 
 ターミナルから以下のコマンドを実行し、バージョンが正しく表示されることを確認する。
 
 ```
-$ brew --version
+$ curl --version
 ```
 
- バージョン表示で失敗する場合、パッケージマネージャー Homebrew（ホームブルー）のインストールを実施する。
+ バージョン表示で失敗する場合、curlのインストールを実施する。
 
-※インストール方法については 公式サイト（URL: [https://brew.sh/index_ja](https://brew.sh/index_ja)）参照。
-
+```
+$ sudo apt install curl
+```
 
 
 # Gitのインストール
@@ -113,38 +93,19 @@ $ brew --version
 $ git --version
 ```
 
- バージョン表示で失敗する場合、以下インストールを実施する。
+ バージョン表示で失敗する、またはバージョンが古い場合、以下インストールを実施する。
 
 ## Gitインストール
 
- Git未インストール時に以下を実施する。
+ Git未インストール時、ターミナルから以下のコマンドを実行し、インストールを実施する。
 
-### インストーラの準備
+```
+$ sudo add-apt-repository ppa:git-core/ppa
+$ sudo apt update
+$ sudo apt install git
+```
 
- 公式サイト（URL: [https://git-scm.com/](https://git-scm.com/)）よりインストーラのダウンロードを行う。
-
- ![](img/mac/imgm02git-01.png)
-
-### インストーラ実行
-
- ダウンロードしたインストーラを実行する。
-
- ![](img/mac/imgm02git-02.png)
- ［続ける］押下
-
-![](img/mac/imgm02git-03.png)
- ［インストール］押下
-
-![](img/mac/imgm02git-04.png)
- パスワード入力後、［ソフトウェアをインストール］押下
-
-![](img/mac/imgm02git-05.png)
- インストール完了後、［閉じる］押下
-
-
-### 再起動とバージョン確認
-
- インストールに伴い必要な環境変数が定義されるのでMacを再起動後、前項「Gitインストール済み確認」に従い、バージョンが正しく表示されることを確認する。
+前項「Gitインストール済み確認」に従い、バージョンが正しく表示されることを確認する。
 
 # Goのインストール
 
@@ -160,45 +121,56 @@ $ git --version
 $ go version
 ```
 
- バージョン表示で失敗する場合、以下インストールを実施する。
+ バージョン表示で失敗する、またはバージョンが古い場合、以下インストールを実施する。
 
 ## Goインストール
 
+ Go未インストール時、ターミナルから以下のコマンドを実行し、インストールを実施する。
+
  Go未インストール時に以下を実施する。
 
-### インストーラの準備
+### インストールの準備
 
- 公式サイト（URL: [https://golang.org/dl/](https://golang.org/dl/)）より該当するMac用インストーラ（.pkg）をダウンロードする。
+ 公式サイト（URL: [https://golang.org/dl/](https://golang.org/dl/)）より該当する実行ファイルをダウンロードする。
 
- ![](img/mac/imgm03go-01.png)
+ ![](/img/ubuntu/imgu03go-01.png)
 
-### インストーラ実行
+### 実行ファイルの展開
 
- ダウンロードしたインストーラを実行する。
+ ターミナルから以下のコマンドを実行し、実行ファイルを展開する。
 
- ![](img/mac/imgm03go-02.png)
- ［続ける］押下
+```
+$ cd [ダウンロード先]									 ← 例：~/Download
+$ sudo tar -C /usr/local/ -xzf [ダウンロードファイル名]  ← 例：go 1.12.4.linux-amd64.tar.gz
+```
 
- ![](img/mac/imgm03go-03.png)
- 「このコンピュータのすべての･･･」を選択した後、［続ける］押下
 
- ![](img/mac/imgm03go-04.png)
- インストール先を確認し、［インストール］押下
 
- ![](img/mac/imgm03go-05.png)
- パスワード入力後、［ソフトウェアをインストール］押下 ![](img/mac/imgm03go-06.png)
- しばらく待つ
+$HOME/.profile ファイルを開き、以下のコマンドを追記する。
 
-![](img/mac/imgm03go-07.png)
- ［閉じる］押下
+```
+export PATH=$PATH:/usr/local/go/bin
+```
 
-### 再起動とバージョン確認
+【追記例】
 
- インストールに伴い必要な環境変数が定義されるのでMacを再起動後、前項「Goインストール済み確認」に従い、バージョンが正しく表示されることを確認する。
+```
+$ gedit ~/.profile    ← エディタ起動
+```
+
+![](/img/ubuntu/imgu03go-02.png)
+
+ 編集後、保存してエディタを閉じる。その後、環境変数の取込みを行うため、ターミナルから以下のコマンドを実行、またはUbuntuを再起動する。
+
+```
+$ source ~/.profile
+```
+
+ 前項「Goインストール済み確認」に従い、バージョンが正しく表示されることを確認する。
 
 ## 環境変数の設定
 
- $HOME/.bash_profile ファイルを開き、以下のコマンドを追記する。
+ $HOME/.bashrc ファイルを開き、以下のコマンドを追記する。
 
 ```
 export GOPATH=$HOME/go
@@ -207,12 +179,16 @@ export PATH=$PATH:$GOPATH/bin
 
 【追記例】
 
-![](img/mac/imgm03go-08.png)
+```
+$ gedit ~/.bashrc    ← エディタ起動
+```
 
-編集後、保存してエディタを閉じる。その後、ターミナルから以下のコマンドを実行し、環境変数の取込み、およびフォルダ作成を行う。
+![](img/ubuntu/imgu03go-03.png)
+
+ 編集後、保存してエディタを閉じる。その後、ターミナルから以下のコマンドを実行し、環境変数の取込み、およびフォルダ作成を行う。
 
 ```
-$ source ~/.bash_profile
+$ source ~/.bashrc
 $ mkdir $GOPATH
 ```
 
@@ -221,8 +197,6 @@ $ mkdir $GOPATH
 ```
 $ ls $HOME
 ```
-
-
 
 # gRPCのインストール
 
@@ -277,11 +251,36 @@ $ protoc --version
 
 ## Protocol Buffersインストール
 
- Protocol Buffers未インストール時、ターミナルから以下のコマンドを実行し、インストールを実施する。
+ Protocol Buffers未インストール時に以下を実施する。
+
+### モジュールのダウンロード
+
+ 公式サイト（URL: [https://github.com/protocolbuffers/protobuf/releases](https://github.com/protocolbuffers/protobuf/releases)）より該当するUbuntu用モジュールをダウンロードする。
+
+ ![](/img/ubuntu/imgu04prtc-01.png)
+
+ ![](/img/ubuntu/imgu04prtc-02.png) 
+
+ ダウンロード後、ターミナルから以下のコマンドを実行し、インストールを実施する。
+
+※以下ダウンロードディレクトリ名、ダウンロードファイル名は一例、「#」はコメントなので読み跳ばすこと
 
 ```
-$ brew update
-$ brew install protobuf
+# カレント変更 (ディレクトリ名は一例)
+cd ~/Download
+
+# zip解凍（ファイル名は一例）
+unzip protoc-3.7.1-linux-x86_64.zip -d protoc3
+
+# protocバイナリ移動 （移動先 /usr/local/bin/）
+sudo mv protoc3/bin/* /usr/local/bin/
+
+# protocインクルード移動 （移動先 /usr/local/include/）
+sudo mv protoc3/include/* /usr/local/include/
+
+# change owner
+sudo chown $USER /usr/local/bin/protoc
+sudo chown -R $USER /usr/local/include/google
 ```
 
 前項「Protocol Buffersインストール済み確認」に従い、バージョンが正しく表示されることを確認する。
@@ -323,42 +322,12 @@ $ npm --version     ← NPMの確認
 
 ## Node.jsとNPMインストール
 
- Node.jsとNPM未インストール時に以下を実施する。
+ Node.jsとNPM未インストール時、ターミナルから以下のコマンドを実行し、インストールを実施する。
 
-### インストーラの準備
-
- 公式サイト（URL: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)）よりMac用インストーラ（.pkg）をダウンロードする。
-
- ![](img/mac/imgm05ndjs-01.png)
-
-Bit適合するファイルがダウンロードされる
-
-### インストーラ実行
-
- ダウンロードしたインストーラを実行する。
-
- ![](img/mac/imgm05ndjs-02.png)
- ［続ける］押下
-
- ![](img/mac/imgm05ndjs-03.png)
-［続ける］押下
-
- ![](img/mac/imgm05ndjs-04.png)
-［同意する］押下
-
- ![](img/mac/imgm05ndjs-05.png)
- ［インストール］押下
-
- ![](img/mac/imgm05ndjs-06.png)
-  パスワード入力後、［ソフトウェアをインストール］押下 
-
- ![](img/mac/imgm05ndjs-07.png)
- しばらく待つ
-
- ![](img/mac/imgm05ndjs-08.png)
- ［閉じる］押下
-
-### バージョン確認
+```
+$ sudo curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+$ sudo apt install -y nodejs		←NPMも同時にインストールされる
+```
 
 前項「Node.jsとNPMインストール済み確認」に従い、バージョンが正しく表示されることを確認する。
 
@@ -379,9 +348,25 @@ $ yarn --version
 ## YARNインストール
 YARN未インストール時、ターミナルから以下のコマンドを実行し、インストールを実施する。
 
+・リポジトリのGPGキーをインポート
+
 ```
-$ brew update
-$ brew install yarn --ignore-dependencies
+$ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+```
+
+・Yarn APTリポジトリをシステムのソフトウェアリポジトリリストに追加
+
+(※以下は一行のコマンド)
+
+```
+$ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+```
+
+・パッケージリストを更新してYarnをインストール
+
+```
+$ sudo apt update
+$ sudo apt install yarn
 ```
 
 前項「YARNインストール済み確認」に従い、バージョンが正しく表示されることを確認する。
@@ -476,7 +461,7 @@ $ go get ./...
 
  【エラー例】※Windows画面（Macでは類似画面となる）
 
-![](img/mac/imgm07msc-01.png)
+![](img/ubuntu/imgu07msc-01.png)
 
  内容：「github.com/spf13/viper」パッケージが見つからない
 
