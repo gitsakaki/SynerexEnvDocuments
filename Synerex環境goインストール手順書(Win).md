@@ -84,18 +84,22 @@
 
  公式サイト（URL: [https://git-scm.com/](https://git-scm.com/)）よりインストーラのダウンロードを行う。
 
- ![](img/win/imgw02git-01.png)
+![](img/win/imgw02git-01.png)
 
 ### インストーラ実行
 
  ダウンロードしたインストーラを実行する。
 
- ![](img/win/imgw02git-02.png)
- ［Next］押下
+![](img/win/imgw02git-02.png)
+
+-  ［Next］押下
+
+
 
 以降省略。デフォルトのまま、［Next］押下
 
- インストール完了後、［Finish］押下
+-  インストール完了後、［Finish］押下
+
 
 
 ### 再起動とバージョン確認
@@ -126,31 +130,51 @@
 
  公式サイト（URL: [https://golang.org/dl/](https://golang.org/dl/)）より該当するWindows用インストーラ（.msi）をダウンロードする。
 
- ![](img/win/imgw03go-01.png)
+![](img/win/imgw03go-01.png)
+
 
 ### インストーラ実行
 
  ダウンロードしたインストーラを実行する。
 
- ![](img/win/imgw03go-02.png)
- ［Next］押下
+![](img/win/imgw03go-02.png)
 
- ![](img/win/imgw03go-03.png)
- 「Ｉ accept･･･」にチェックを入れた後、［Next］押下
+-  ［Next］押下
 
- ![](img/win/imgw03go-04.png)
- インストール先を確認し、［Next］押下
 
- ![](img/win/imgw03go-05.png)
- ［Install］押下
 
- インストール途中に「Google LLC」のインストールを許可しますか？をきいてくるの「はい」押下
+![](img/win/imgw03go-03.png)
 
- ![](img/win/imgw03go-06.png)
- しばらく待つ
+- 「Ｉ accept･･･」にチェックを入れた後、［Next］押下
+
+
+
+![](img/win/imgw03go-04.png)
+
+-  インストール先を確認し、［Next］押下
+
+
+
+![](img/win/imgw03go-05.png)
+
+-  ［Install］押下
+
+
+-  インストール途中に「Google LLC」のインストールを許可しますか？をきいてくるの「はい」押下
+
+
+
+![](img/win/imgw03go-06.png)
+
+-  しばらく待つ
+
+
 
 ![](img/win/imgw03go-07.png)
- ［Finish］押下
+
+-  ［Finish］押下
+
+
 
 ### 再起動とバージョン確認
 
@@ -215,9 +239,10 @@
 
  公式サイト（URL: [https://github.com/protocolbuffers/protobuf/releases](https://github.com/protocolbuffers/protobuf/releases)）より該当するWindows用モジュールをダウンロードする。
 
- ![](img/win/imgw04prtc-01.png)
+![](img/win/imgw04prtc-01.png)
 
- ![](img/win/imgw04prtc-02.png)
+![](img/win/imgw04prtc-02.png)
+
 
 ### 圧縮ファイルの展開
 
@@ -232,28 +257,43 @@
  ［Win］キー（or ［スタート］） → ｅ ｎ ｖ入力 → システム環境変数の編集
  選択で以下画面を表示、環境変数情報を編集する
 
- ![](img/win/imgw04prtc-03.png)
- システム環境変数の［新規］押下
+![](img/win/imgw04prtc-03.png)
 
- ![](img/win/imgw04prtc-04.png)
+-  システム環境変数の［新規］押下
 
- ・変数名：「PROTOC_PATH」
- ・変数値：圧縮ファイル展開先￥バージョン￥bin
- ・［OK］押下
 
- ![](img/win/imgw04prtc-05.png)
- 「PROTOC_PATH」項目が追加されていることを確認
 
- ![](img/win/imgw04prtc-06.png)
- システム環境変数の「Path」項目をダブルクリック
+![](img/win/imgw04prtc-04.png)
 
- ![](img/win/imgw04prtc-07.png)
- ①［新規］押下
- ②「％PROTOC_PATH%」入力
- ③［OK］押下
+- 変数名：「PROTOC_PATH」
+- 変数値：圧縮ファイル展開先￥バージョン￥bin
+- ［OK］押下
 
- ![](img/win/imgw04prtc-08.png)
- ［OK］押下
+
+![](img/win/imgw04prtc-05.png)
+
+-  「PROTOC_PATH」項目が追加されていることを確認
+
+
+
+![](img/win/imgw04prtc-06.png)
+
+-  システム環境変数の「Path」項目をダブルクリック
+
+
+
+![](img/win/imgw04prtc-07.png)
+
+1. ［新規］押下
+2. 「％PROTOC_PATH%」入力
+3. ［OK］押下
+
+
+![](img/win/imgw04prtc-08.png)
+
+-  ［OK］押下
+
+
 
 ### 再起動とバージョン確認
 
@@ -302,34 +342,56 @@
 
  公式サイト（URL: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)）よりWindows用インストーラ（.msi）をダウンロードする。
 
- ![](img/win/imgw05ndjs-01.png)
+![](img/win/imgw05ndjs-01.png)
 
 Bit適合するファイルがダウンロードされる
+
 
 ### インストーラ実行
 
  ダウンロードしたインストーラを実行する。
 
- ![](img/win/imgw05ndjs-02.png)
- ［Next］押下
+![](img/win/imgw05ndjs-02.png)
 
- ![](img/win/imgw05ndjs-03.png)
- 「Ｉ accept ･･･」にチェックを入れた後、［Next］押下
+-  ［Next］押下
 
- ![](img/win/imgw05ndjs-04.png)
- インストール先を確認し、［Next］押下
 
- ![](img/win/imgw05ndjs-05.png)
- ［Next］押下
 
- ![](img/win/imgw05ndjs-06.png)
- ［Install］押下
+![](img/win/imgw05ndjs-03.png)
 
- ![](img/win/imgw05ndjs-07.png)
- しばらく待つ
+-  「Ｉ accept ･･･」にチェックを入れた後、［Next］押下
 
- ![](img/win/imgw05ndjs-08.png)
- ［Finish］押下
+
+
+![](img/win/imgw05ndjs-04.png)
+
+-  インストール先を確認し、［Next］押下
+
+
+
+![](img/win/imgw05ndjs-05.png)
+
+-  ［Next］押下
+
+
+
+![](img/win/imgw05ndjs-06.png)
+
+-  ［Install］押下
+
+
+
+![](img/win/imgw05ndjs-07.png)
+
+-  しばらく待つ
+
+
+
+![](img/win/imgw05ndjs-08.png)
+
+-  ［Finish］押下
+
+
 
 ### 再起動とバージョン確認
 
@@ -358,32 +420,56 @@ Bit適合するファイルがダウンロードされる
  公式サイト（URL: [https://yarnpkg.com/ja/](https://yarnpkg.com/ja/)）よりWindows用インストーラ（.msi）をダウンロードする。
 
 ![](img/win/imgw06yarn-01.png)
-［YARNをインストール］押下
+
+- ［YARNをインストール］押下
+
+
 
 ![](img/win/imgw06yarn-02.png)
-種類確認後、［インストーラをダウンロードする］押下
+
+- 種類確認後、［インストーラをダウンロードする］押下
+
+
 
 ### インストーラ実行
 
  ダウンロードしたインストーラを実行する。
 
- ![](img/win/imgw06yarn-03.png)
-［Next］押下
+![](img/win/imgw06yarn-03.png)
 
- ![](img/win/imgw06yarn-04.png)
-「Ｉ accept ･･･」にチェックを入れた後、［Next］押下
+- ［Next］押下
 
- ![](img/win/imgw06yarn-05.png)
-インストール先を確認し、［Next］押下
 
- ![](img/win/imgw06yarn-06.png)
-［Install］押下
 
- ![](img/win/imgw06yarn-07.png)
-しばらく待つ
+![](img/win/imgw06yarn-04.png)
 
- ![](img/win/imgw06yarn-08.png)
-［Finish］押下
+- 「Ｉ accept ･･･」にチェックを入れた後、［Next］押下
+
+
+
+![](img/win/imgw06yarn-05.png)
+
+- インストール先を確認し、［Next］押下
+
+
+
+![](img/win/imgw06yarn-06.png)
+
+- ［Install］押下
+
+
+
+![](img/win/imgw06yarn-07.png)
+
+- しばらく待つ
+
+
+
+![](img/win/imgw06yarn-08.png)
+
+- ［Finish］押下
+
+
 
 ### 再起動とバージョン確認
 

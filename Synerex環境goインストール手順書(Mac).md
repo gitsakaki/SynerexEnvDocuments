@@ -55,13 +55,13 @@
 
 ![](img/mac/imgm01sys-01.png)
 
-「このMacについて」を選択
+- 「このMacについて」を選択
 
 
 
 ![](img/mac/imgm01sys-02.png)
 
-［システムレポート］押下
+- ［システムレポート］押下
 
 
 
@@ -123,23 +123,35 @@ $ git --version
 
  公式サイト（URL: [https://git-scm.com/](https://git-scm.com/)）よりインストーラのダウンロードを行う。
 
- ![](img/mac/imgm02git-01.png)
+![](img/mac/imgm02git-01.png)
+
 
 ### インストーラ実行
 
  ダウンロードしたインストーラを実行する。
 
- ![](img/mac/imgm02git-02.png)
- ［続ける］押下
+![](img/mac/imgm02git-02.png)
+
+-  ［続ける］押下
+
+
 
 ![](img/mac/imgm02git-03.png)
- ［インストール］押下
+
+-  ［インストール］押下
+
+
 
 ![](img/mac/imgm02git-04.png)
- パスワード入力後、［ソフトウェアをインストール］押下
+
+-  パスワード入力後、［ソフトウェアをインストール］押下
+
+
 
 ![](img/mac/imgm02git-05.png)
- インストール完了後、［閉じる］押下
+
+-  インストール完了後、［閉じる］押下
+
 
 
 ### 再起動とバージョン確認
@@ -170,27 +182,48 @@ $ go version
 
  公式サイト（URL: [https://golang.org/dl/](https://golang.org/dl/)）より該当するMac用インストーラ（.pkg）をダウンロードする。
 
- ![](img/mac/imgm03go-01.png)
+![](img/mac/imgm03go-01.png)
+
 
 ### インストーラ実行
 
  ダウンロードしたインストーラを実行する。
 
- ![](img/mac/imgm03go-02.png)
- ［続ける］押下
+![](img/mac/imgm03go-02.png)
 
- ![](img/mac/imgm03go-03.png)
- 「このコンピュータのすべての･･･」を選択した後、［続ける］押下
+-  ［続ける］押下
 
- ![](img/mac/imgm03go-04.png)
- インストール先を確認し、［インストール］押下
 
- ![](img/mac/imgm03go-05.png)
- パスワード入力後、［ソフトウェアをインストール］押下 ![](img/mac/imgm03go-06.png)
- しばらく待つ
+
+![](img/mac/imgm03go-03.png)
+
+-  「このコンピュータのすべての･･･」を選択した後、［続ける］押下
+
+
+
+![](img/mac/imgm03go-04.png)
+
+-  インストール先を確認し、［インストール］押下
+
+
+
+![](img/mac/imgm03go-05.png)
+
+-  パスワード入力後、［ソフトウェアをインストール］押下
+
+
+
+![](img/mac/imgm03go-06.png)
+
+-  しばらく待つ
+
+
 
 ![](img/mac/imgm03go-07.png)
- ［閉じる］押下
+
+-  ［閉じる］押下
+
+
 
 ### 再起動とバージョン確認
 
@@ -329,34 +362,55 @@ $ npm --version     ← NPMの確認
 
  公式サイト（URL: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)）よりMac用インストーラ（.pkg）をダウンロードする。
 
- ![](img/mac/imgm05ndjs-01.png)
+![](img/mac/imgm05ndjs-01.png)
 
 Bit適合するファイルがダウンロードされる
+
 
 ### インストーラ実行
 
  ダウンロードしたインストーラを実行する。
 
- ![](img/mac/imgm05ndjs-02.png)
- ［続ける］押下
+![](img/mac/imgm05ndjs-02.png)
 
- ![](img/mac/imgm05ndjs-03.png)
-［続ける］押下
+-  ［続ける］押下
 
- ![](img/mac/imgm05ndjs-04.png)
-［同意する］押下
 
- ![](img/mac/imgm05ndjs-05.png)
- ［インストール］押下
 
- ![](img/mac/imgm05ndjs-06.png)
-  パスワード入力後、［ソフトウェアをインストール］押下 
+![](img/mac/imgm05ndjs-03.png)
 
- ![](img/mac/imgm05ndjs-07.png)
- しばらく待つ
+- ［続ける］押下
 
- ![](img/mac/imgm05ndjs-08.png)
- ［閉じる］押下
+
+
+![](img/mac/imgm05ndjs-04.png)
+
+- ［同意する］押下
+
+
+
+![](img/mac/imgm05ndjs-05.png)
+
+-  ［インストール］押下
+
+
+![](img/mac/imgm05ndjs-06.png)
+
+-   パスワード入力後、［ソフトウェアをインストール］押下 
+
+
+
+![](img/mac/imgm05ndjs-07.png)
+
+-  しばらく待つ
+
+
+
+![](img/mac/imgm05ndjs-08.png)
+
+-  ［閉じる］押下
+
+
 
 ### バージョン確認
 
