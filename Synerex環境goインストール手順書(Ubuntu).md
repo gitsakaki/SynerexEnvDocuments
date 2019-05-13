@@ -12,11 +12,13 @@
 
 [TOC]
 
+
 # はじめに
 
  本書はGo言語インストールに関する手順書である。Synerex Alphaが実行できる環境の構築を目的としているため、gRPCなど関連モジュールの記述も含んでいる。
 
  モジュールインストール毎に正常確認を行うために、環境変数を取込むUbuntu再起動を都度行う手順としている。
+
 
 # 前提条件
 
@@ -38,6 +40,7 @@
 5. Node.jsとNPMのインストール
 6. YARNのインストール
 7. 関連パッケージのインストール
+
 
 # 事前確認
 
@@ -104,6 +107,7 @@ $ sudo apt install git
 ```
 
 前項「Gitインストール済み確認」に従い、バージョンが正しく表示されることを確認する。
+
 
 # Goのインストール
 
@@ -197,6 +201,7 @@ $ mkdir $GOPATH
 $ ls $HOME
 ```
 
+
 # gRPCのインストール
 
  gRPCは、RPC (Remote Procedure Call)を実現するためにGoogleが開発したプロトコルの1つである。
@@ -229,6 +234,7 @@ $ go get -u google.golang.org/grpc
  ※処理に数分程度要することがあるので気長に待つ。
 
  処理終了後、前項「gRPCインストール済み確認」に従い、フォルダがあることを確認する。
+
 
 # Protocol Buffersのインストール
 
@@ -265,19 +271,19 @@ $ protoc --version
 ※以下ダウンロードディレクトリ名、ダウンロードファイル名は一例、「#」はコメントなので読み跳ばすこと
 
 ```
-# カレント変更 (ディレクトリ名は一例)
+＃ カレント変更 (ディレクトリ名は一例)
 cd ~/Download
 
-# zip解凍（ファイル名は一例）
+＃ zip解凍（ファイル名は一例）
 unzip protoc-3.7.1-linux-x86_64.zip -d protoc3
 
-# protocバイナリ移動 （移動先 /usr/local/bin/）
+＃ protocバイナリ移動 （移動先 /usr/local/bin/）
 sudo mv protoc3/bin/* /usr/local/bin/
 
-# protocインクルード移動 （移動先 /usr/local/include/）
+＃ protocインクルード移動 （移動先 /usr/local/include/）
 sudo mv protoc3/include/* /usr/local/include/
 
-# change owner
+＃ change owner
 sudo chown $USER /usr/local/bin/protoc
 sudo chown -R $USER /usr/local/include/google
 ```
@@ -301,6 +307,7 @@ $ go get -u github.com/golang/protobuf/protoc-gen-go
  ※処理に数分程度要することがあるので気長に待つ。
 
  処理終了後、上記whichコマンドを実行し、ファイルが存在することを確認する。
+
 
 # Node.jsとNPMのインストール
 
@@ -329,6 +336,7 @@ $ sudo apt install -y nodejs		←NPMも同時にインストールされる
 ```
 
 前項「Node.jsとNPMインストール済み確認」に従い、バージョンが正しく表示されることを確認する。
+
 
 # YARNのインストール
 
@@ -369,6 +377,7 @@ $ sudo apt install yarn
 ```
 
 前項「YARNインストール済み確認」に従い、バージョンが正しく表示されることを確認する。
+
 
 # 関連パッケージのインストール
 
@@ -451,6 +460,7 @@ $ go get ./...
 
 ※1 ダウンロードに時間がかかるため気長に待つ。
 ※2 GO111MODULE=autoに伴うエラーが発生する場合は、前項「自動ダウンロードする場合」同様にexportコマンドにて対応する。
+
 
 # その他
 
