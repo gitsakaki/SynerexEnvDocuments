@@ -1,12 +1,12 @@
 | Synerex Alpha環境 Go言語インストール手順書 |
 | ------------------------------------------ |
 | **（Ubuntu編）**                           |
-| **R0.01版**                                |
+| **R0.02版**                                |
 
 | 作成者     | 榊原          |
 | ---------- | ------------- |
 | 初版作成日 | 2019年5月13日 |
-| 最終更新日 | 2019年5月13日 |
+| 最終更新日 | 2019年5月14日 |
 
  目次
 
@@ -22,11 +22,11 @@
 
 # 前提条件
 
-- ubuntu 16.04 LTS以降（説明ではWindows画面を一部流用している。）
+- Ubuntu 16.04 LTS以降（説明ではWindows画面を一部流用している。）
 - プロセッサ種別がIntel系でない場合、別途考察が必要
 - 64bit版 OS（本書では64bit版OSを対象としているため、32bit版OSについては別途考察が必要）
 - curlコマンドインストール済み
-- Golangなどaptコマンドによるインストールでなく、最新モジュールを適用することを目的に手動によるインストール手順としている場合がある。
+- Goなどは、aptコマンドによるインストールでなく、最新モジュールを適用することを目的に手動によるインストール手順としている場合がある。
 
 
 ## セットアップ順序
@@ -48,18 +48,18 @@
 
 ## OS情報の確認
 
- ubuntuのbitを確認するため、以下を実行する。
+ UbuntuのOS情報を確認するため、以下を実行する。
 
 ![](img/ubuntu/imgu01sys-01.png)
 
 1. 「コンピュータを検索」選択
-2. 「shi」入力
+2. 「sys」入力
 3. 「詳細」選択
 
 
 ![](img/ubuntu/imgu01sys-02.png)
 
-「プロセッサ」と「OS種別」把握する。
+「プロセッサ」と「OS種別」を把握する。
 
 ※本書ではIntel系CPU、64bit版OSを対象としているため、その他の場合（特にARM系）については別途考察が必要となる
 
@@ -114,6 +114,18 @@ $ sudo apt install git
  Goはプログラミング言語の1つである。2009年、GoogleでRobert Griesemer、ロブ・パイク、ケン・トンプソンによって設計された。
 
  Goは、静的型付け、C言語の伝統に則ったコンパイル言語、メモリ安全性（英語版）、ガベージコレクション、構造的型付け（英語版）、CSPスタイルの並行性などの特徴を持つ。Goのコンパイラ、ツール、およびソースコードは、すべてフリーかつオープンソースである。
+
+## ディレクトリ構成
+
+ Go環境の基本的なディレクトリ構成を以下に示す。
+
+| #    | 名称                   | 環境変数名 | パス                  | 備考                     |
+| ---- | ---------------------- | ---------- | --------------------- | ------------------------ |
+| 1    | Go本体                 | GOROOT     | /usr/local/go         |                          |
+| 2    | Go関連モジュール       | GOPATH     | $HOME/go  ※           | リンクモジュール格納先   |
+| 3    | Goプロジェクトフォルダ | ー         | $HOME/MyProjects    ※ | ユーザプロジェクト作業先 |
+
+※任意
 
 ## Goインストール済み確認
 
@@ -211,14 +223,16 @@ $ ls $HOME
 
 ## gRPCインストール済み確認
 
- 以下フォルダ内に「genproto」「grpc」フォルダがあればOK
+ 以下いずれかのフォルダ内に「genproto＊」「grpc＊」フォルダがあればOK
 
- $GOPATH/src/google.golang.org
+ $GOPATH/src/google.golang.org                  または
+ %GOPATH/pkg/mod/google.golang.org
 
  【確認例】
 
 ```
 $ ls $GOPATH/src/google.golang.org
+$ ls %GOPATH/pkg/mod/google.golang.org
 ```
 
  フォルダが存在しない場合、以下インストールを実施する。
@@ -271,16 +285,16 @@ $ protoc --version
 ※以下ダウンロードディレクトリ名、ダウンロードファイル名は一例、「#」はコメントなので読み跳ばすこと
 
 ```
-＃ カレント変更 (ディレクトリ名は一例)
+＃ ダウンロード先へカレント変更 (ディレクトリ名は一例)
 cd ~/Download
 
 ＃ zip解凍（ファイル名は一例）
 unzip protoc-3.7.1-linux-x86_64.zip -d protoc3
 
-＃ protocバイナリ移動 （移動先 /usr/local/bin/）
+＃ protocバイナリファイル移動 （移動先 /usr/local/bin/）
 sudo mv protoc3/bin/* /usr/local/bin/
 
-＃ protocインクルード移動 （移動先 /usr/local/include/）
+＃ protocインクルードファイル移動 （移動先 /usr/local/include/）
 sudo mv protoc3/include/* /usr/local/include/
 
 ＃ change owner
@@ -390,7 +404,13 @@ $ sudo apt install yarn
  （※以下はインストール例であるため、適宜調整する）
 
 ```
-$ go get -u [Synerex Alphaリポジトリ]
+【サンプル1】
+$ mkdir ~/MyProjects
+$ cd ~/MyProjects
+$ git clone https://github.com/synerex/synerex_alpha
+
+【サンプル2】
+$ go get -u github.com/synerex/synerex_alpha    ← $GOPATH/src 配下へコピーする
 ```
 
 | 【 Synerexリポジトリ例】         |
@@ -404,7 +424,9 @@ $ go get -u [Synerex Alphaリポジトリ]
 
  Synerex Alphaを実行するためには、関連パッケージのインストールが必要となる。
 
- 通常は、go buildで関連パッケージを自動でダウンロードするが、go version 1.12以降では、go modulesパッケージ仕様が変更され、デフォルトでは、ビルド対象パッケージが $GOPATH/src 配下にある場合、関連パッケージのダウンロードがされない。そのため、モジュールが見つからない旨のエラーが発生する場合は、go build前に以下コマンド実行するか、手動にて関連パッケージをインストールする必要がある。
+ 通常は、go buildで関連パッケージを自動でダウンロードするが、go version 1.12以降では、go modulesパッケージ仕様が変更され、デフォルトでは、ビルド対象パッケージが $GOPATH/src 配下にある場合、関連パッケージのダウンロードがされない。
+
+ そのため、モジュールが見つからない旨のエラーが発生する場合は、go build前に以下コマンド実行するか、手動にて関連パッケージをインストールする必要がある。
 
 ### ダウンロード先
 
@@ -418,6 +440,7 @@ $ go get -u [Synerex Alphaリポジトリ]
 ### 自動ダウンロードする場合
 
  Synerex Alphaが動作するために必要な関連パッケージを自動インストールする。
+（ビルド対象パッケージが $GOPATH/src 配下に無い場合は不要）
 
  go buildコマンド発行前に、コマンドプロンプトから以下のコマンドを実行するか、環境変数「GO111MODULE」を設定する。
 
@@ -486,6 +509,13 @@ $ go get -u github.com/spf13/viper
 
  Protocのパス定義でinclude部分を参照する部品があるが、パス不正によるエラーとなる例があった。（Protocパスの設定見直しにて解決）。
 
+
+## go buildエラー
+
+ go buildでエラーになる要因として、go.modに問題がある場合があるので、内容が正しいことを確認する。
+
+「go mod init」で初期化する方法でも対応可能。（前章「自動ダウンロードする場合【サンプル2】」参照※）
+※モジュールバージョン管理の更新に注意
 
 
 ― 以上 ―
