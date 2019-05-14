@@ -200,7 +200,8 @@
  以下いずれかのフォルダ内に「genproto＊」「grpc＊」フォルダがあればOK。
  （「%GOPATH%」では正常に動作しないことがあるため「%USERPROFILE%」で確認する。（環境設定値「;」の影響））
 
- %USERPROFILE%\go\src\google.golang.org         または
+ %USERPROFILE%\go\src\google.golang.org または
+
  %USERPROFILE%\go\pkg\mod\google.golang.org
 
  【確認例】

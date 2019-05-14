@@ -225,7 +225,8 @@ $ ls $HOME
 
  以下いずれかのフォルダ内に「genproto＊」「grpc＊」フォルダがあればOK
 
- $GOPATH/src/google.golang.org                  または
+ $GOPATH/src/google.golang.org または
+
  %GOPATH/pkg/mod/google.golang.org
 
  【確認例】
@@ -282,7 +283,7 @@ $ protoc --version
 
  ダウンロード後、ターミナルから以下のコマンドを実行し、インストールを実施する。
 
-※以下ダウンロードディレクトリ名、ダウンロードファイル名は一例、「#」はコメントなので読み跳ばすこと
+※以下ダウンロードディレクトリ名、ダウンロードファイル名は一例、「#」はコメント行なので読み跳ばすこと
 
 ```
 ＃ ダウンロード先へカレント変更 (ディレクトリ名は一例)
@@ -369,21 +370,22 @@ $ yarn --version
 ## YARNインストール
 YARN未インストール時、ターミナルから以下のコマンドを実行し、インストールを実施する。
 
-・リポジトリのGPGキーをインポート
+- リポジトリのGPGキーをインポート
+
 
 ```
 $ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 ```
 
-・Yarn APTリポジトリをシステムのソフトウェアリポジトリリストに追加
+- Yarn APTリポジトリをシステムのソフトウェアリポジトリリストに追加
 
-(※以下は一行のコマンド)
 
 ```
 $ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 ```
 
-・パッケージリストを更新してYarnをインストール
+- パッケージリストを更新してYarnをインストール
+
 
 ```
 $ sudo apt update
@@ -507,7 +509,7 @@ $ go get -u github.com/spf13/viper
 
  go generateでエラーになる要因として、goパッケージの未インストール、パス不正の場合があるので、パスが正常に通っているか確認する。
 
- Protocのパス定義でinclude部分を参照する部品があるが、パス不正によるエラーとなる例があった。（Protocパスの設定見直しにて解決）。
+ Protocのパス定義でinclude部分を参照する部品があるが、パス不正により、エラーとなる例があった。（Protocパスの設定見直しにて解決）。
 
 
 ## go buildエラー

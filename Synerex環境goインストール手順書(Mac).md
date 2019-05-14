@@ -275,7 +275,8 @@ $ ls $HOME
 
  以下いずれかのフォルダ内に「genproto＊」「grpc＊」フォルダがあればOK
 
- $GOPATH/src/google.golang.org                  または
+ $GOPATH/src/google.golang.org または
+
  %GOPATH/pkg/mod/google.golang.org
 
  【確認例】
